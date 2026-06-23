@@ -1,1 +1,5 @@
 dtl1
+node_modules/
+dist/
+*.log
+coverage/

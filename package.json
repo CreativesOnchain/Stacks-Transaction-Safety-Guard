@@ -1,0 +1,35 @@
+{
+  "name": "stx-tx-guard",
+  "version": "0.1.0",
+  "description": "Post-condition safety checks for Stacks.js and Stacks Connect transaction code.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "stx-tx-guard": "dist/cli/bin.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsc --watch",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "fast-glob": "^3.3.3",
+    "typescript": "^6.0.3",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@stacks/connect": "^8.2.6",
+    "@stacks/transactions": "^7.4.0",
+    "@types/node": "^26.0.0",
+    "vitest": "^4.1.9"
+  }
+}
