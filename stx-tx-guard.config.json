@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "scan": {
+    "include": ["src/**/*.{ts,tsx,js,jsx}", "app/**/*.{ts,tsx}", "pages/**/*.{ts,tsx}"],
+    "exclude": ["node_modules/**", "dist/**", "build/**"]
+  },
+  "rules": {
+    "STX001": "error",
+    "STX002": "error",
+    "STX003": "error",
+    "STX004": "warn",
+    "STX005": "error",
+    "STX006": "warn",
+    "STX007": "error"
+  },
+  "assetContracts": {
+    "sbtc": {
+      "type": "sip010",
+      "contract": "SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token",
+      "tokenName": "sbtc",
+      "transferFunctions": ["transfer"]
+    }
+  },
+  "transferLikeFunctionNames": ["transfer", "swap", "deposit", "withdraw", "pay", "donate"],
+  "overrides": []
+}
