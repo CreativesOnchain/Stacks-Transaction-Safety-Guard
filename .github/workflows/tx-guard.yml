@@ -1,0 +1,46 @@
+# Example GitHub Action for stx-tx-guard. It also dogfoods the tool on this
+# repo's bundled example projects. In your own project you would replace the
+# build + `node dist/cli/bin.js` calls with `npx stx-tx-guard scan <path> --strict`.
+name: tx-guard
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tx-guard:
+    name: Post-condition safety scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build stx-tx-guard
+        run: npm run build
+
+      # Real gate: the safe and no-transfer demos must pass in strict mode.
+      - name: Scan safe examples (must pass)
+        run: |
+          node dist/cli/bin.js scan examples/safe-sbtc-transfer --strict --report markdown
+          node dist/cli/bin.js scan examples/no-transfer-contract-call --strict --report markdown
+
+      # Demonstration: the unsafe demo is expected to fail in strict mode, so the
+      # job inverts its exit code to stay green while proving detection works.
+      - name: Scan unsafe example (expected to fail)
+        run: |
+          if node dist/cli/bin.js scan examples/unsafe-sbtc-transfer --strict --report markdown; then
+            echo "::error::unsafe example unexpectedly passed the scan"
+            exit 1
+          else
+            echo "unsafe example correctly failed strict scanning"
+          fi

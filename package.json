@@ -18,7 +18,10 @@
     "typecheck": "tsc --noEmit",
     "dev": "tsc --watch",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "scan:unsafe": "node dist/cli/bin.js scan examples/unsafe-sbtc-transfer",
+    "scan:safe": "node dist/cli/bin.js scan examples/safe-sbtc-transfer",
+    "scan:no-transfer": "node dist/cli/bin.js scan examples/no-transfer-contract-call"
   },
   "dependencies": {
     "commander": "^15.0.0",
