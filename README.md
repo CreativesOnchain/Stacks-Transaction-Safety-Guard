@@ -45,7 +45,7 @@ Full rationale, firing conditions, and before/after fixes are in the
 Requires **Node.js 20+**.
 
 ```bash
-git clone https://github.com/steven3002/Stacks-Transaction-Safety-Guard.git
+git clone https://github.com/CreativesOnchain/Stacks-Transaction-Safety-Guard.git
 cd Stacks-Transaction-Safety-Guard
 npm install
 npm run build
