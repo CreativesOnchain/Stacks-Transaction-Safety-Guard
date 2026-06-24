@@ -137,6 +137,3 @@ The tool **never imports or runs Stacks.js**; `@stacks/*` are dev-only dependenc
 used to author the examples and verify API shapes. Parsing uses the TypeScript
 Compiler API, so `.ts/.tsx/.js/.jsx` are scanned natively.
 
-## License
-
-MIT
