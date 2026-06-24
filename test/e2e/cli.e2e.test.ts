@@ -48,11 +48,12 @@ describe('stx-tx-guard CLI (e2e)', () => {
     expect(strict.stdout).toContain('STX004');
   });
 
-  it('fails the unsafe sBTC demo with STX005 and STX007', () => {
+  it('fails the unsafe sBTC demo with STX001, STX004, STX005, and STX007', () => {
     const run = runCli(['scan', 'examples/unsafe-sbtc-transfer']);
     expect(run.status).toBe(1);
-    expect(run.stdout).toContain('STX005');
-    expect(run.stdout).toContain('STX007');
+    for (const rule of ['STX001', 'STX004', 'STX005', 'STX007']) {
+      expect(run.stdout).toContain(rule);
+    }
   });
 
   it('passes the safe sBTC demo', () => {

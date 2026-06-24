@@ -2,8 +2,32 @@
   "name": "stx-tx-guard",
   "version": "0.1.0",
   "description": "Post-condition safety checks for Stacks.js and Stacks Connect transaction code.",
+  "keywords": [
+    "stacks",
+    "sbtc",
+    "stacks.js",
+    "stacks-connect",
+    "post-conditions",
+    "clarity",
+    "bitcoin",
+    "defi",
+    "sip-010",
+    "cli",
+    "github-action",
+    "static-analysis",
+    "security"
+  ],
   "type": "module",
   "license": "MIT",
+  "author": "steven3002",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steven3002/Stacks-Transaction-Safety-Guard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/steven3002/Stacks-Transaction-Safety-Guard/issues"
+  },
+  "homepage": "https://github.com/steven3002/Stacks-Transaction-Safety-Guard#readme",
   "engines": {
     "node": ">=20"
   },
@@ -11,7 +35,11 @@
     "stx-tx-guard": "dist/cli/bin.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "docs",
+    "stx-tx-guard.config.json",
+    "README.md",
+    "LICENSE"
   ],
   "scripts": {
     "build": "tsc",
